@@ -28,7 +28,54 @@ const images = [
   },
 ];
 
-const gallery1 = document.querySelector(".gallery");
+
+// Отримуємо посилання на елемент <ul>
+const gallery = document.querySelector('.gallery');
+
+// Створюємо фрагмент для оптимального додавання у DOM
+const fragment = document.createDocumentFragment();
+
+// Створюємо та додаємо кожен елемент <li> з <img> у фрагмент
+images.forEach((image) => {
+  const listItem = document.createElement('li');
+  const img = document.createElement('img');
+
+  img.src = image.url;
+  img.alt = image.alt;
+  img.width = 360;
+  img.height = 300;
+
+  listItem.appendChild(img);
+  fragment.appendChild(listItem);
+});
+
+// Додаємо фрагмент з усіма елементами до <ul>
+gallery.appendChild(fragment);
+
+
+
+
+/*const gallery = document.querySelector(".gallery");
+
+const markup = images.map(({url, alt, src}) => {
+  const img = document.createElement("img");
+  img.setAttribute("src", url);
+  img.setAttribute("alt", alt);
+  img.width = 360;
+  img.height = 300;
+
+    return `<li class="gallery-images">${img}</li>`;
+});
+
+console.log(markup);
+gallery.insertAdjacentHTML("afterbegin", markup); */
+
+
+
+
+
+
+/*const gallery = document.querySelector(".gallery");
 
 const markup = images.map(({url, alt, src}) => {
   const img = document.createElement("img");
@@ -41,4 +88,4 @@ const markup = images.map(({url, alt, src}) => {
 });
 
 console.log(markup);
-gallery1.insertAdjacentHTML("afterbegin", markup);
+gallery.insertAdjacentHTML("afterbegin", markup); */

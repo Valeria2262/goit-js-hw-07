@@ -20,15 +20,18 @@ function getRandomHexColor() {
 
     destroyBoxes(); 
 
-    let size = 30;
+    let sizeWidth = 30;
+    let sizeHeight = 30;
+
 
     for (let i = 0; i < amount; i++) {
       const box = document.createElement('div');
-      box.style.width = `${size}px`;
-      box.style.height = `${size}px`;
+      box.style.width = `${sizeWidth}px`;
+      box.style.height = `${sizeHeight}px`;
       box.style.backgroundColor = getRandomHexColor();
       boxesContainer.appendChild(box);
-      size += 10;
+      sizeWidth += 10;
+      sizeHeight += 10;
     }
 
     input.value = ''; 
